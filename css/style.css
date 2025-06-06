@@ -1,0 +1,25 @@
+.mainDiv {
+  background: pink;
+  width: 200px;
+  height: 200px;
+}
+.animationMain {
+  animation: bgChange 1s linear infinite;
+}
+@keyframes bgChange {
+  0% {
+    background-color: pink;
+  }
+  30% {
+    background-color: black;
+  }
+  60% {
+    background-color: yellowgreen;
+  }
+  100% {
+    background-color: pink;
+  }
+}
+.h1Class {
+  background-color: rgb(136, 136, 231);
+}
