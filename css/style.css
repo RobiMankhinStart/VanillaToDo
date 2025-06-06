@@ -1,25 +1,41 @@
+body {
+  background-color: rgb(231, 240, 246);
+}
 .mainDiv {
-  background: pink;
-  width: 200px;
-  height: 200px;
+  margin-top: 36px !important;
+  background: rgb(255, 255, 255);
+  width: 500px;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.animationMain {
-  animation: bgChange 1s linear infinite;
+.header {
+  /* background-color: rgba(221, 203, 203, 0.308); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@keyframes bgChange {
-  0% {
-    background-color: pink;
-  }
-  30% {
-    background-color: black;
-  }
-  60% {
-    background-color: yellowgreen;
-  }
-  100% {
-    background-color: pink;
-  }
+.header .createInput {
+  background-color: rgba(221, 203, 203, 0.363);
+
+  width: 240px;
+  border: none;
+  outline: none;
+  /* height: 36px; */
+  padding: 10px;
+  padding-right: 12px;
+  border-radius: 6px;
 }
-.h1Class {
-  background-color: rgb(136, 136, 231);
+.createButton {
+  background-color: rgb(93, 93, 238);
+  color: white;
+  font-size: 36px;
+  border-radius: 50%;
+  border: none;
+  margin-left: -10px;
 }

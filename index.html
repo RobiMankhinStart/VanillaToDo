@@ -5,10 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
   </head>
   <body>
-    <div class="mainDiv"></div>
-    <button onclick="handleChange()">change</button>
+    <div class="mainDiv">
+      <h2 class="name">Vanilla ToDo</h2>
+      <!-- ..........header ........... -->
+      <div class="header">
+        <input
+          class="createInput"
+          type="text"
+          placeholder="Create a task........"
+        />
+        <button class="createButton"><i class="fa-solid fa-plus"></i></button>
+      </div>
+      <div class="list"></div>
+    </div>
+
     <script src="./js/script.js"></script>
   </body>
 </html>
