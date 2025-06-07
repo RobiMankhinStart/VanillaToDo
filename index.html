@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Vanilla_ToDo</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/all.min.css" />
   </head>
   <body>
     <div class="mainDiv">
-      <h2 class="name">Vanilla ToDo</h2>
+      <h2 class="name"><span>V</span>anilla <span>T</span>o<span>D</span>o</h2>
+      <h4 class="counter"><span>0</span> / 5</h4>
       <!-- ..........header ........... -->
       <div class="header">
         <input
@@ -19,9 +20,27 @@
         />
         <button class="createButton"><i class="fa-solid fa-plus"></i></button>
       </div>
-      <div class="list"></div>
     </div>
-
+    <div class="Todo_List">
+      <div class="singleTodoCard">
+        <input class="todoCardInput" type="text" />
+        <!-- From Uiverse.io by david-mohseni -->
+        <ul class="wrapper">
+          <li class="icon edit">
+            <span class="tooltip">Edit</span>
+            <i class="fa-solid fa-pen-to-square"></i>
+          </li>
+          <li class="icon delete">
+            <span class="tooltip">Delete</span>
+            <i class="fa-solid fa-trash"></i>
+          </li>
+          <li class="icon completed">
+            <span class="tooltip">Completed</span>
+            <i class="fa-regular fa-circle-check"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
     <script src="./js/script.js"></script>
   </body>
 </html>
