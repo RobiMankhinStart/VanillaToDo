@@ -2,6 +2,11 @@
 let counter = document.querySelector(".counter");
 let createInput = document.querySelector(".createInput");
 let Todo_List = document.querySelector(".Todo_List");
+
+// Enter keyPress function to run the button
+createInput.addEventListener("keypress", (e) => {
+  if (e.key == "Enter") handleClick();
+});
 //.............. event........
 let handleClick = () => {
   if (createInput.value == "") {
@@ -87,9 +92,43 @@ let handleClick = () => {
     done_icon_li.classList.add("icon", "done");
     done_span_toolTip.classList.add("tooltip");
     done_button_icon.classList.add("fa-regular", "fa-circle-check");
+
+    // Clearing input value
+    createInput.value = "";
+
+    //   making the input read only
+    //   todoCardInput_input.readOnly = true; // alternative
+    todoCardInput_input.setAttribute("readonly", "readOnly");
+
+    //   editing function.....
+    edit_icon_li.addEventListener("click", () => {
+      edit_icon_li.classList.toggle("save");
+      if (edit_icon_li.classList.contains("save")) {
+        //   todoCardInput_input.readOnly = false;
+        todoCardInput_input.removeAttribute("readonly");
+        edit_span_toolTip.textContent = "Save";
+        edit_button_icon.classList.add("fa-solid", "fa-floppy-disk");
+      } else {
+        edit_button_icon.classList.remove("fa-solid", "fa-floppy-disk");
+        edit_button_icon.classList.add("fa-solid", "fa-pen-to-square");
+        todoCardInput_input.setAttribute("readonly", "readOnly");
+        edit_span_toolTip.textContent = "Edit";
+      }
+    });
+    //   deleting function.....
+    delete_icon_li.addEventListener("click", () => {
+      singleTodoCard_div.remove();
+    });
+    //   done function.....
+    done_icon_li.addEventListener("click", () => {
+      if (done_icon_li.style.backgroundColor === "rgb(219, 219, 24)") {
+        done_icon_li.style.backgroundColor = "";
+      } else {
+        done_icon_li.style.backgroundColor = "rgb(219, 219, 24)";
+      }
+    });
   }
 };
-
 // ....................alternative and easier............
 // just put it inside the handleClick function
 // ......function to create a button .....
