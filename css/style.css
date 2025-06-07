@@ -78,6 +78,10 @@ body {
   border: none;
   margin-left: -10px;
   padding: 4px 8px;
+  cursor: pointer;
+}
+.createButton:hover {
+  background: #0e58b9;
 }
 /* ..............todo list ...  */
 
@@ -85,7 +89,7 @@ body {
   margin-top: 14px !important;
   background: rgb(255, 255, 255);
   width: 500px;
-  height: 480px;
+  /* height: 480px; */
   margin: 0 auto;
   padding: 16px 10px;
   border-radius: 12px;
@@ -197,9 +201,9 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.wrapper .completed:hover,
-.wrapper .completed:hover .tooltip,
-.wrapper .completed:hover .tooltip::before {
+.wrapper .done:hover,
+.wrapper .done:hover .tooltip,
+.wrapper .done:hover .tooltip::before {
   background: #1da1f2;
 
   color: #fff;
