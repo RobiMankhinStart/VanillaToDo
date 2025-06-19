@@ -99,18 +99,22 @@ let handleClick = () => {
     //   making the input read only
     //   todoCardInput_input.readOnly = true; // alternative
     todoCardInput_input.setAttribute("readonly", "readOnly");
-
     //   editing function.....
     edit_icon_li.addEventListener("click", () => {
       edit_icon_li.classList.toggle("save");
       if (edit_icon_li.classList.contains("save")) {
         //   todoCardInput_input.readOnly = false;
         todoCardInput_input.removeAttribute("readonly");
+        todoCardInput_input.style.backgroundColor = "#f0e9e99d";
         edit_span_toolTip.textContent = "Save";
         edit_button_icon.classList.add("fa-solid", "fa-floppy-disk");
       } else {
+        todoCardInput_input.style.backgroundColor = "";
+
         edit_button_icon.classList.remove("fa-solid", "fa-floppy-disk");
         edit_button_icon.classList.add("fa-solid", "fa-pen-to-square");
+        // edit button click to make read only true again
+
         todoCardInput_input.setAttribute("readonly", "readOnly");
         edit_span_toolTip.textContent = "Edit";
       }

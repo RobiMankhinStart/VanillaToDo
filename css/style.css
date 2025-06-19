@@ -118,6 +118,8 @@ body {
   padding: 10px 7px;
   font-family: "Inter", sans-serif;
   border: none;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 /* ...................................
 .............buttons ......... */
