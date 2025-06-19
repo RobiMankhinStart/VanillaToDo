@@ -1,7 +1,15 @@
 // ..........dom selection ...........
 let counter = document.querySelector(".counter");
+let totalDone_todo = document.querySelector(".totalDone_todo");
+let totalTodo = document.querySelector(".totalTodo");
 let createInput = document.querySelector(".createInput");
 let TodoList_div = document.querySelector(".TodoList_div");
+
+let totalTodo_count = 0;
+totalTodo.innerHTML = totalTodo_count;
+
+let totalDoneTodo_count = 0;
+totalDone_todo.innerHTML = totalDoneTodo_count;
 
 // Enter keyPress function to run the button
 createInput.addEventListener("keypress", (e) => {
@@ -12,6 +20,8 @@ let handleClickCreate = () => {
   if (createInput.value == "") {
     alert("Enter something......");
   } else {
+    totalTodo_count++;
+    totalTodo.innerHTML = totalTodo_count;
     // ..................creating dom/Tags
     let singleTodoCard_div = document.createElement("div");
     let todoCardInput_input = document.createElement("input");
@@ -84,7 +94,7 @@ let handleClickCreate = () => {
     done_icon_li.appendChild(done_button_icon);
 
     // done button tooltip text
-    done_span_toolTip.textContent = "Done";
+    done_span_toolTip.textContent = "ToDo";
 
     // appending Done button in the wrapper_ul
     wrapper_ul.appendChild(done_icon_li);
@@ -109,6 +119,11 @@ let handleClickCreate = () => {
         todoCardInput_input.style.backgroundColor = "#f0e9e99d";
         edit_span_toolTip.textContent = "Save";
         edit_button_icon.classList.add("fa-solid", "fa-floppy-disk");
+        // disabling delete and done buttons
+        delete_icon_li.style.pointerEvents = "none";
+        delete_icon_li.style.opacity = "0.6";
+        done_icon_li.style.pointerEvents = "none";
+        done_icon_li.style.opacity = "0.6";
       } else {
         todoCardInput_input.style.backgroundColor = "";
 
@@ -118,19 +133,50 @@ let handleClickCreate = () => {
 
         todoCardInput_input.setAttribute("readonly", "readOnly");
         edit_span_toolTip.textContent = "Edit";
+
+        // enabling delete and done buttons
+        delete_icon_li.style.pointerEvents = "auto";
+        delete_icon_li.style.opacity = "1";
+        done_icon_li.style.pointerEvents = "all";
+        done_icon_li.style.opacity = "1";
       }
     });
 
     //   deleting function.....
     delete_icon_li.addEventListener("click", () => {
+      totalTodo_count--;
+      totalTodo.innerHTML = totalTodo_count;
       singleTodoCard_div.remove();
+
+      // decrement of done  totalDone_todo . ...
+      if (done_icon_li.classList[2] == "completed_Done") {
+        totalDoneTodo_count--;
+        totalDone_todo.innerHTML = totalDoneTodo_count;
+      }
+      // alternative
+      // if (done_icon_li.classList.contains("completed_Done")) {
+      //   totalDoneTodo_count--;
+      //   totalDone_todo.innerHTML = totalDoneTodo_count;
+      // }
     });
     //   done function.....
     done_icon_li.addEventListener("click", () => {
+      done_icon_li.classList.add("completed_Done");
+      totalDoneTodo_count++;
+      totalDone_todo.innerHTML = totalDoneTodo_count;
+
       if (done_icon_li.style.backgroundColor === "rgb(219, 219, 24)") {
         done_icon_li.style.backgroundColor = "";
       } else {
         done_icon_li.style.backgroundColor = "rgb(219, 219, 24)";
+      }
+
+      // .........disabling the button ......
+      if (done_icon_li.classList.contains("completed_Done")) {
+        done_icon_li.style.pointerEvents = "none";
+        done_icon_li.style.opacity = "0.5";
+        edit_icon_li.style.pointerEvents = "none";
+        edit_icon_li.style.opacity = "0.5";
       }
     });
   }
