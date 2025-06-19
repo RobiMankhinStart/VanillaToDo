@@ -1,14 +1,14 @@
 // ..........dom selection ...........
 let counter = document.querySelector(".counter");
 let createInput = document.querySelector(".createInput");
-let Todo_List = document.querySelector(".Todo_List");
+let TodoList_div = document.querySelector(".TodoList_div");
 
 // Enter keyPress function to run the button
 createInput.addEventListener("keypress", (e) => {
-  if (e.key == "Enter") handleClick();
+  if (e.key == "Enter") handleClickCreate();
 });
-//.............. event........
-let handleClick = () => {
+//..............create click event........
+let handleClickCreate = () => {
   if (createInput.value == "") {
     alert("Enter something......");
   } else {
@@ -17,8 +17,8 @@ let handleClick = () => {
     let todoCardInput_input = document.createElement("input");
     let wrapper_ul = document.createElement("ul");
 
-    // ...appending Children for Todo_List..........
-    Todo_List.appendChild(singleTodoCard_div);
+    // ...appending Children for TodoList_div..........
+    TodoList_div.appendChild(singleTodoCard_div);
     // ...appending Children for single card..........
     singleTodoCard_div.appendChild(todoCardInput_input);
     singleTodoCard_div.appendChild(wrapper_ul);
@@ -86,7 +86,7 @@ let handleClick = () => {
     // done button tooltip text
     done_span_toolTip.textContent = "Done";
 
-    // appending Done buttons in the wrapper_ul
+    // appending Done button in the wrapper_ul
     wrapper_ul.appendChild(done_icon_li);
     //   adding className for Done button
     done_icon_li.classList.add("icon", "done");
@@ -99,6 +99,7 @@ let handleClick = () => {
     //   making the input read only
     //   todoCardInput_input.readOnly = true; // alternative
     todoCardInput_input.setAttribute("readonly", "readOnly");
+
     //   editing function.....
     edit_icon_li.addEventListener("click", () => {
       edit_icon_li.classList.toggle("save");
@@ -119,6 +120,7 @@ let handleClick = () => {
         edit_span_toolTip.textContent = "Edit";
       }
     });
+
     //   deleting function.....
     delete_icon_li.addEventListener("click", () => {
       singleTodoCard_div.remove();
